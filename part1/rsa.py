@@ -80,6 +80,7 @@ assert (d * e % phi_n) == 1
 # c = m**e % n
 orig_msg = 'hello world'
 enc_msg = encrypt(orig_msg, e, n)
+assert orig_msg != enc_msg
 
 # 7. Decrypt number using the private key (d)
 # m = c**e % n
