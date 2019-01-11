@@ -95,12 +95,17 @@ print(f'decrypted message: {dec_msg}')
 This works because we know that:
 
 d*e = 1 mod phi_n
+d*e = k*phi_n + 1
 
 c = m**e mod n
 m = c**d mod n (sub c)
   = (m**e mod n)**d mod n
   = m**(d * e) mod n
-  = m**1 mod n
+  = m**(k*phi_n + 1) mod n
+  = (m**(phi_n)**k)*m**1 mod n # note: m^(phi_n) = 1 mod n
+  = (1 mod n)**k * m**1 mod n
+  = 1**k * m**1 mod n
+  = m mod n
 
 https://crypto.stackexchange.com/questions/1789/why-is-rsa-encryption-key-based-on-modulo-varphin-rather-than-modulo-n
 """
